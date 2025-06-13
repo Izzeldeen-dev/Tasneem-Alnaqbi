@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasneem Alnaqbi - Certified Life Coach | لنغير عالمنا معاً</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, #fef7f0 0%, #fde2e4 100%);
+        }
+        .blob-shape {
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .nav-link::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #ec4899;
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .testimonial-card {
+            background: linear-gradient(135deg, #ffffff 0%, #fdf2f8 100%);
+        }
+        .rtl {
+            direction: rtl;
+            text-align: right;
+        }
+        .ltr {
+            direction: ltr;
+            text-align: left;
+        }
+        .language-toggle {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            background: #f3f4f6;
+            border-radius: 0.5rem;
+            padding: 0.25rem;
+        }
+        .language-toggle button {
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        .language-toggle button.active {
+            background: #ec4899;
+            color: white;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        .language-toggle button:not(.active) {
+            color: #6b7280;
+        }
+        .hidden-lang {
+            display: none;
+        }
+        .pricing-card {
+            background: linear-gradient(135deg, #ffffff 0%, #fdf2f8 100%);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        .pricing-card:hover {
+            border-color: #ec4899;
+            transform: translateY(-5px);
+        }
+        .guarantee-section {
+            background: linear-gradient(135deg, #fef7f0 0%, #fde2e4 100%);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-800">
+    <!-- Navigation -->
+    <header class="fixed w-full z-50 bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-2">
+                <div class="bg-pink-500 text-white p-2 rounded-lg">
+                    <i class="fas fa-heart text-xl"></i>
+                </div>
+                <span class="text-xl font-bold text-gray-800">Tasneem Alnaqbi</span>
+            </a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link text-gray-600 hover:text-pink-500 font-medium" data-en="Home" data-ar="الرئيسية">Home</a>
+                <a href="#about" class="nav-link text-gray-600 hover:text-pink-500 font-medium" data-en="About" data-ar="عن تسنيم">About</a>
+                <a href="#services" class="nav-link text-gray-600 hover:text-pink-500 font-medium" data-en="Services" data-ar="الخدمات">Services</a>
+                <a href="#testimonials" class="nav-link text-gray-600 hover:text-pink-500 font-medium" data-en="Testimonials" data-ar="آراء العملاء">Testimonials</a>
+                <a href="#contact" class="nav-link text-gray-600 hover:text-pink-500 font-medium" data-en="Contact" data-ar="اتصل بنا">Contact</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <div class="language-toggle">
+                    <button id="lang-en" class="active" onclick="switchLanguage('en')">EN</button>
+                    <button id="lang-ar" onclick="switchLanguage('ar')">عربي</button>
+                </div>
+                <a href="https://calendly.com/tasneemink/coaching?month=2025-06" target="_blank" class="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded-lg font-medium transition duration-300 flex items-center space-x-2">
+                    <i class="fas fa-calendar-check"></i>
+                    <span data-en="Book Session" data-ar="احجز جلسة">Book Session</span>
+                </a>
+            </div>
+            <button class="md:hidden text-gray-600" id="menu-toggle">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        <!-- Mobile menu -->
+        <div class="hidden md:hidden bg-white w-full px-4 py-2 shadow-lg" id="mobile-menu">
+            <a href="#home" class="block py-2 text-gray-600 hover:text-pink-500 font-medium">Home</a>
+            <a href="#about" class="block py-2 text-gray-600 hover:text-pink-500 font-medium">About</a>
+            <a href="#services" class="block py-2 text-gray-600 hover:text-pink-500 font-medium">Services</a>
+            <a href="#testimonials" class="block py-2 text-gray-600 hover:text-pink-500 font-medium">Testimonials</a>
+            <a href="#contact" class="block py-2 text-gray-600 hover:text-pink-500 font-medium">Contact</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-gradient pt-32 pb-20">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-12 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-800 leading-tight mb-6">
+                        <span data-en="Transform Your Life with" data-ar="غير حياتك مع">Transform Your Life with</span> 
+                        <span class="text-pink-500" data-en="Certified Life Coaching" data-ar="التدريب المعتمد على الحياة">Certified Life Coaching</span>
+                    </h1>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed" data-en="Hello! I'm Tasneem, a certified life coach passionate about helping you discover your purpose, make confident decisions, and create the life you truly desire. Let's change our world together - لنغير عالمنا معاً" data-ar="مرحباً! أنا تسنيم، مدربة حياة معتمدة شغوفة بمساعدتك في اكتشاف هدفك، واتخاذ قرارات واثقة، وخلق الحياة التي تريدينها حقاً. لنغير عالمنا معاً">
+                        Hello! I'm Tasneem, a certified life coach passionate about helping you discover your purpose, make confident decisions, and create the life you truly desire. Let's change our world together - لنغير عالمنا معاً
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://calendly.com/tasneemink/coaching?month=2025-06" target="_blank" class="bg-pink-500 hover:bg-pink-600 text-white px-6 py-3 rounded-lg font-medium text-lg transition duration-300 flex items-center space-x-2">
+                            <i class="fas fa-rocket"></i>
+                            <span data-en="Start Your Journey" data-ar="ابدأ رحلتك">Start Your Journey</span>
+                        </a>
+                        <a href="#about" class="border border-pink-500 text-pink-500 hover:bg-pink-50 px-6 py-3 rounded-lg font-medium text-lg transition duration-300 flex items-center space-x-2">
+                            <i class="fas fa-user"></i>
+                            <span data-en="Learn More" data-ar="اعرف أكثر">Learn More</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="bg-pink-100 blob-shape w-80 h-80 md:w-96 md:h-96 flex items-center justify-center relative">
+                        <div class="w-64 h-64 md:w-80 md:h-80 rounded-full border-4 border-white shadow-xl overflow-hidden">
+                            <img src="hero-image.png" alt="Tasneem Alnaqbi - Certified Life Coach" class="w-full h-full object-cover">
+                        </div>
+                        <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-2xl shadow-lg">
+                            <div class="flex items-center space-x-2">
+                                <div class="bg-pink-100 p-2 rounded-full">
+                                    <i class="fas fa-heart text-pink-500"></i>
+                                </div>
+                                <span class="font-medium" data-en="Certified Coach" data-ar="مدربة معتمدة">Certified Coach</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="text-4xl font-bold text-pink-500 mb-2">500+</div>
+                    <div class="text-gray-600" data-en="Lives Transformed" data-ar="حياة تم تغييرها">Lives Transformed</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold text-pink-500 mb-2">98%</div>
+                    <div class="text-gray-600" data-en="Client Satisfaction" data-ar="رضا العملاء">Client Satisfaction</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold text-pink-500 mb-2">7+</div>
+                    <div class="text-gray-600" data-en="Years Experience" data-ar="سنوات خبرة">Years Experience</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold text-pink-500 mb-2">24/7</div>
+                    <div class="text-gray-600" data-en="Support" data-ar="الدعم">Support</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4" data-en="About Tasneem Alnaqbi" data-ar="عن تسنيم النقبي">About Tasneem Alnaqbi</h2>
+                <div class="w-20 h-1 bg-pink-500 mx-auto"></div>
+            </div>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-12">
+                    <div class="w-full h-96 bg-gray-200 rounded-xl shadow-lg flex items-center justify-center">
+                        <div class="text-center text-gray-500">
+                            <i class="fas fa-user text-6xl mb-4"></i>
+                            <p>About Section Image Placeholder</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4" data-en="Certified Life Coach - لنغير عالمنا معاً" data-ar="مدربة حياة معتمدة - لنغير عالمنا معاً">Certified Life Coach - لنغير عالمنا معاً</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed" data-en="I'm passionate about empowering individuals to unlock their full potential and create meaningful change in their lives. With years of experience in life coaching, I specialize in helping people discover their passion, clarify their values, and make confident decisions that align with their true purpose." data-ar="أنا شغوفة بتمكين الأفراد من إطلاق إمكاناتهم الكاملة وخلق تغيير هادف في حياتهم. مع سنوات من الخبرة في تدريب الحياة، أتخصص في مساعدة الناس على اكتشاف شغفهم، وتوضيح قيمهم، واتخاذ قرارات واثقة تتماشى مع هدفهم الحقيقي.">
+                        I'm passionate about empowering individuals to unlock their full potential and create meaningful change in their lives. With years of experience in life coaching, I specialize in helping people discover their passion, clarify their values, and make confident decisions that align with their true purpose.
+                    </p>
+                    <p class="text-gray-600 mb-6 leading-relaxed" data-en="My approach is holistic and personalized, focusing on your unique journey and goals. Whether you're seeking clarity in your career, relationships, or personal growth, I'm here to guide and support you every step of the way." data-ar="نهجي شامل ومخصص، يركز على رحلتك وأهدافك الفريدة. سواء كنت تبحث عن الوضوح في مسيرتك المهنية أو علاقاتك أو نموك الشخصي، أنا هنا لأرشدك وأدعمك في كل خطوة.">
+                        My approach is holistic and personalized, focusing on your unique journey and goals. Whether you're seeking clarity in your career, relationships, or personal growth, I'm here to guide and support you every step of the way.
+                    </p>
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start">
+                            <div class="bg-pink-100 p-2 rounded-full mr-4 mt-1">
+                                <i class="fas fa-compass text-pink-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800" data-en="Purpose Discovery" data-ar="اكتشاف الهدف">Purpose Discovery</h4>
+                                <p class="text-gray-600" data-en="Help you uncover your true passion and life mission" data-ar="مساعدتك في اكتشاف شغفك الحقيقي ورسالة حياتك">Help you uncover your true passion and life mission</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-pink-100 p-2 rounded-full mr-4 mt-1">
+                                <i class="fas fa-balance-scale text-pink-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800" data-en="Decision Making" data-ar="اتخاذ القرارات">Decision Making</h4>
+                                <p class="text-gray-600" data-en="Guide you through important life decisions with confidence" data-ar="إرشادك خلال قرارات الحياة المهمة بثقة">Guide you through important life decisions with confidence</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-pink-100 p-2 rounded-full mr-4 mt-1">
+                                <i class="fas fa-heart text-pink-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800" data-en="Values Alignment" data-ar="توافق القيم">Values Alignment</h4>
+                                <p class="text-gray-600" data-en="Align your actions with your core values and beliefs" data-ar="مواءمة أفعالك مع قيمك ومعتقداتك الأساسية">Align your actions with your core values and beliefs</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#services" class="inline-block bg-pink-500 hover:bg-pink-600 text-white px-6 py-2 rounded-lg font-medium transition duration-300">
+                        <span data-en="View Services" data-ar="عرض الخدمات">View Services</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4" data-en="Coaching Services" data-ar="خدمات التدريب">Coaching Services</h2>
+                <div class="w-20 h-1 bg-pink-500 mx-auto"></div>
+                <p class="text-lg text-gray-600 mt-4 max-w-2xl mx-auto" data-en="Choose the coaching session that best fits your needs and start your transformation journey today." data-ar="اختر جلسة التدريب التي تناسب احتياجاتك وابدأ رحلة التحول اليوم.">
+                    Choose the coaching session that best fits your needs and start your transformation journey today.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Introductory Session -->
+                <div class="pricing-card rounded-xl p-8 shadow-md">
+                    <div class="bg-pink-100 w-16 h-16 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-handshake text-2xl text-pink-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3" data-en="Introductory Session" data-ar="جلسة استشارة تعريفية">Introductory Session</h3>
+                    <p class="text-gray-600 mb-5" data-en="Get to know each other and explore how coaching can help you achieve your goals." data-ar="جلسة استشارة تعريفية مع تسنيم - نصف ساعة">
+                        Get to know each other and explore how coaching can help you achieve your goals.
+                    </p>
+                    <div class="text-3xl font-bold text-pink-500 mb-4">$29</div>
+                    <div class="text-sm text-gray-500 mb-6" data-en="30 minutes session" data-ar="جلسة نصف ساعة">30 minutes session</div>
+                    <a href="https://calendly.com/tasneemink/coaching?month=2025-06" target="_blank" class="w-full bg-pink-500 hover:bg-pink-600 text-white py-3 rounded-lg font-medium transition duration-300 flex items-center justify-center space-x-2">
+                        <i class="fas fa-calendar-check"></i>
+                        <span data-en="Book Now" data-ar="احجز الآن">Book Now</span>
+                    </a>
+                </div>
+
+                <!-- Decision Making Session -->
+                <div class="pricing-card rounded-xl p-8 shadow-md">
+                    <div class="bg-pink-100 w-16 h-16 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-balance-scale text-2xl text-pink-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3" data-en="Decision Making Session" data-ar="جلسة اتخاذ قرار">Decision Making Session</h3>
+                    <p class="text-gray-600 mb-5" data-en="Comprehensive 2-hour session to help you make important life decisions with clarity and confidence." data-ar="جلسة شاملة لمدة ساعتين لمساعدتك في اتخاذ قرارات الحياة المهمة بوضوح وثقة.">
+                        Comprehensive 2-hour session to help you make important life decisions with clarity and confidence.
+                    </p>
+                    <div class="text-3xl font-bold text-pink-500 mb-2">$436</div>
+                    <div class="text-sm text-gray-500 mb-4" data-en="2 hours + Free group follow-up session" data-ar="ساعتان + هدية جلسة متابعة جماعية">2 hours + Free group follow-up session</div>
+                    <a href="https://calendly.com/tasneemink/coaching?month=2025-06" target="_blank" class="w-full bg-pink-500 hover:bg-pink-600 text-white py-3 rounded-lg font-medium transition duration-300 flex items-center justify-center space-x-2">
+                        <i class="fas fa-calendar-check"></i>
+                        <span data-en="Book Now" data-ar="احجز الآن">Book Now</span>
+                    </a>
+                </div>
+
+                <!-- Passion Discovery Session -->
+                <div class="pricing-card rounded-xl p-8 shadow-md">
+                    <div class="bg-pink-100 w-16 h-16 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-compass text-2xl text-pink-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3" data-en="Discover Your Passion" data-ar="جلسة اكتشاف شغفك">Discover Your Passion</h3>
+                    <p class="text-gray-600 mb-5" data-en="Uncover what truly drives you and align your life with your deepest passions and interests." data-ar="اكتشف ما يحركك حقاً ووائم حياتك مع أعمق شغفك واهتماماتك.">
+                        Uncover what truly drives you and align your life with your deepest passions and interests.
+                    </p>
+                    <div class="text-3xl font-bold text-pink-500 mb-2">$436</div>
+                    <div class="text-sm text-gray-500 mb-4" data-en="2 hours + Free group follow-up session" data-ar="ساعتان + هدية جلسة متابعة جماعية">2 hours + Free group follow-up session</div>
+                    <a href="https://calendly.com/tasneemink/coaching?month=2025-06" target="_blank" class="w-full bg-pink-500 hover:bg-pink-600 text-white py-3 rounded-lg font-medium transition duration-300 flex items-center justify-center space-x-2">
+                        <i class="fas fa-calendar-check"></i>
+                        <span data-en="Book Now" data-ar="احجز الآن">Book Now</span>
+                    </a>
+                </div>
+
+                <!-- Values & Mission Session -->
+                <div class="pricing-card rounded-xl p-8 shadow-md">
+                    <div class="bg-pink-100 w-16 h-16 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-heart text-2xl text-pink-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3" data-en="Discover Your Mission & Values" data-ar="جلسة اكتشاف رسالتك وقيمك">Discover Your Mission & Values</h3>
+                    <p class="text-gray-600 mb-5" data-en="Deep dive into your core values and life mission through two comprehensive sessions." data-ar="غوص عميق في قيمك الأساسية ورسالة حياتك من خلال جلستين شاملتين.">
+                        Deep dive into your core values and life mission through two comprehensive sessions.
+                    </p>
+                    <div class="text-3xl font-bold text-pink-500 mb-2">$872</div>
+                    <div class="text-sm text-gray-500 mb-4" data-en="2 sessions + Free group follow-up session" data-ar="جلستان + هدية جلسة متابعة جماعية">2 sessions + Free group follow-up session</div>
+                    <a href="https://calendly.com/tasneemink/coaching?month=2025-06" target="_blank" class="w-full bg-pink-500 hover:bg-pink-600 text-white py-3 rounded-lg font-medium transition duration-300 flex items-center justify-center space-x-2">
+                        <i class="fas fa-calendar-check"></i>
+                        <span data-en="Book Now" data-ar="احجز الآن">Book Now</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Golden Guarantee Section -->
+    <section class="guarantee-section py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-8 text-center">
+                <div class="bg-yellow-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i class="fas fa-shield-alt text-3xl text-yellow-600"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-gray-800 mb-6" data-en="Golden Guarantee" data-ar="الضمان الذهبي">Golden Guarantee</h2>
+                <p class="text-lg text-gray-600 leading-relaxed" data-en="We believe in the quality of coaching sessions that Tasneem provides and the value she delivers. Therefore, we are happy to offer you a golden guarantee. If you don't benefit from the session, tell Tasneem directly at the end of the session and we will refund the full amount you paid." data-ar="لدينا إيمان بجودة جلسات الاستشارة التي تقدمها المدربة تسنيم والقيمة التي تعطيها. لذلك، نحن سعداء لنقدم لك ضمان ذهبي. إن لم تستفد من الجلسة، أخبر تسنيم مباشرة في نهاية الجلسة وسنقوم بإرجاع المبلغ الذي دفعته كاملاً.">
+                    We believe in the quality of coaching sessions that Tasneem provides and the value she delivers. Therefore, we are happy to offer you a golden guarantee. If you don't benefit from the session, tell Tasneem directly at the end of the session and we will refund the full amount you paid.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Creation Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4" data-en="Content Creation Services" data-ar="خدمات إنشاء المحتوى">Content Creation Services</h2>
+                <div class="w-20 h-1 bg-pink-500 mx-auto"></div>
+                <p class="text-lg text-gray-600 mt-4 max-w-2xl mx-auto" data-en="Looking to collaborate on content creation? Fill out the form below and let's discuss your project." data-ar="تبحث عن التعاون في إنشاء المحتوى؟ املأ النموذج أدناه ولنناقش مشروعك.">
+                    Looking to collaborate on content creation? Fill out the form below and let's discuss your project.
+                </p>
+            </div>
+            <div class="max-w-2xl mx-auto bg-white rounde
+d-xl shadow-lg p-8">
+                <form id="content-form" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="first-name" class="block text-gray-700 mb-2 font-medium" data-en="First Name" data-ar="الاسم الأول">First Name</label>
+                            <input type="text" id="first-name" name="firstName" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500" required>
+                        </div>
+                        <div>
+                            <label for="company-name" class="block text-gray-700 mb-2 font-medium" data-en="Company Name" data-ar="اسم الشركة">Company Name</label>
+                            <input type="text" id="company-name" name="companyName" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500" required>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="email" class="block text-gray-700 mb-2 font-medium" data-en="Email" data-ar="البريد الإلكتروني">Email</label>
+                        <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500" required>
+                    </div>
+                    <div>
+                        <label for="phone" class="block text-gray-700 mb-2 font-medium" data-en="Phone Number" data-ar="رقم التواصل">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500" required>
+                    </div>
+                    <div>
+                        <label for="content-creator" class="block text-gray-700 mb-2 font-medium" data-en="Content Creator" data-ar="صانع المحتوى">Content Creator</label>
+                        <input type="text" id="content-creator" name="contentCreator" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500" required>
+                    </div>
+                    <div>
+                        <label for="collaboration-details" class="block text-gray-700 mb-2 font-medium" data-en="What are you looking to collaborate for?" data-ar="ما هي متطلبات الحملة الإعلامية؟">What are you looking to collaborate for?</label>
+                        <textarea id="collaboration-details" name="collaborationDetails" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500" required></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-pink-500 hover:bg-pink-600 text-white py-3 rounded-lg font-medium text-lg transition duration-300">
+                        <span data-en="Submit Collaboration Request" data-ar="إرسال طلب التعاون">Submit Collaboration Request</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4" data-en="What Clients Say" data-ar="ما يقوله العملاء">What Clients Say</h2>
+                <div class="w-20 h-1 bg-pink-500 mx-auto"></div>
+                <p class="text-lg text-gray-600 mt-4 max-w-2xl mx-auto" data-en="Don't just take my word for it - here's what people have to say about their transformation journey." data-ar="لا تأخذ كلامي فقط - إليك ما يقوله الناس عن رحلة التحول الخاصة بهم.">
+                    Don't just take my word for it - here's what people have to say about their transformation journey.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="testimonial-card rounded-xl p-8 shadow-md">
+                    <div class="flex items-center mb-6">
+                        <img src="https://randomuser.me/api/portraits/women/45.jpg" 
+                             alt="Sarah M." 
+                             class="w-16 h-16 rounded-full object-cover border-4 border-pink-100">
+                        <div class="ml-4">
+                            <h4 class="font-bold">Sarah M.</h4>
+                            <p class="text-gray-500" data-en="Marketing Professional" data-ar="محترفة تسويق">Marketing Professional</p>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic" data-en="Tasneem helped me discover my true passion and gave me the confidence to make a career change. Her guidance was invaluable in helping me align my work with my values." data-ar="ساعدتني تسنيم في اكتشاف شغفي الحقيقي وأعطتني الثقة لإجراء تغيير مهني. كان توجيهها لا يقدر بثمن في مساعدتي على مواءمة عملي مع قيمي.">
+                        "Tasneem helped me discover my true passion and gave me the confidence to make a career change. Her guidance was invaluable in helping me align my work with my values."
+                    </p>
+                </div>
+                <div class="testimonial-card rounded-xl p-8 shadow-md">
+                    <div class="flex items-center mb-6">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" 
+                             alt="Ahmed K." 
+                             class="w-16 h-16 rounded-full object-cover border-4 border-pink-100">
+                        <div class="ml-4">
+                            <h4 class="font-bold">Ahmed K.</h4>
+                            <p class="text-gray-500" data-en="Entrepreneur" data-ar="رائد أعمال">Entrepreneur</p>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic" data-en="The decision-making session with Tasneem was a game-changer for my business. She helped me see things from a different perspective and make choices that transformed my company." data-ar="كانت جلسة اتخاذ القرار مع تسنيم نقطة تحول لعملي. ساعدتني في رؤية الأشياء من منظور مختلف واتخاذ خيارات غيرت شركتي.">
+                        "The decision-making session with Tasneem was a game-changer for my business. She helped me see things from a different perspective and make choices that transformed my company."
+                    </p>
+                </div>
+                <div class="testimonial-card rounded-xl p-8 shadow-md">
+                    <div class="flex items-center mb-6">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" 
+                             alt="Layla T." 
+                             class="w-16 h-16 rounded-full object-cover border-4 border-pink-100">
+                        <div class="ml-4">
+                            <h4 class="font-bold">Layla T.</h4>
+                            <p class="text-gray-500" data-en="Teacher" data-ar="معلمة">Teacher</p>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic" data-en="Working with Tasneem on discovering my values and mission was life-changing. I now have clarity on what truly matters to me and how to live authentically." data-ar="العمل مع تسنيم على اكتشاف قيمي ورسالتي كان مغيراً للحياة. لدي الآن وضوح حول ما يهمني حقاً وكيفية العيش بأصالة.">
+                        "Working with Tasneem on discovering my values and mission was life-changing. I now have clarity on what truly matters to me and how to live authentically."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4" data-en="Get In Touch" data-ar="تواصل معنا">Get In Touch</h2>
+                <div class="w-20 h-1 bg-pink-500 mx-auto"></div>
+                <p class="text-lg text-gray-600 mt-4 max-w-2xl mx-auto" data-en="Ready to start your transformation journey? I'd love to hear from you and discuss how we can work together." data-ar="مستعد لبدء رحلة التحول؟ أحب أن أسمع منك وأناقش كيف يمكننا العمل معاً.">
+                    Ready to start your transformation journey? I'd love to hear from you and discuss how we can work together.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+                <div class="bg-white rounded-xl p-8 shadow-md">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6" data-en="Contact Information" data-ar="معلومات الاتصال">Contact Information</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-pink-100 p-3 rounded-lg mr-4">
+                                <i class="fas fa-envelope text-pink-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1" data-en="Email" data-ar="البريد الإلكتروني">Email</h4>
+                                <p class="text-gray-600">tasneem@lifecoaching.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-pink-100 p-3 rounded-lg mr-4">
+                                <i class="fas fa-calendar-check text-pink-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1" data-en="Book a Session" data-ar="احجز جلسة">Book a Session</h4>
+                                <p class="text-gray-600">
+                                    <a href="https://calendly.com/tasneemink/coaching?month=2025-06" target="_blank" class="hover:text-pink-500 transition-colors">
+                                        Schedule your coaching session
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-pink-100 p-3 rounded-lg mr-4">
+                                <i class="fas fa-clock text-pink-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1" data-en="Response Time" data-ar="وقت الاستجابة">Response Time</h4>
+                                <p class="text-gray-600" data-en="Usually within 24 hours" data-ar="عادة خلال 24 ساعة">Usually within 24 hours</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8 pt-6 border-t border-gray-200">
+                        <h4 class="font-bold text-gray-800 mb-4" data-en="Connect With Me" data-ar="تواصل معي">Connect With Me</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-gray-100 hover:bg-pink-100 p-3 rounded-full text-gray-700 hover:text-pink-500 transition-colors duration-300">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="bg-gray-100 hover:bg-pink-100 p-3 rounded-full text-gray-700 hover:text-pink-500 transition-colors duration-300">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="bg-gray-100 hover:bg-pink-100 p-3 rounded-full text-gray-700 hover:text-pink-500 transition-colors duration-300">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl p-8 shadow-md">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6" data-en="Send Me a Message" data-ar="أرسل لي رسالة">Send Me a Message</h3>
+                    <form id="contact-form" class="space-y-5">
+                        <div>
+                            <label for="contact-name" class="block text-gray-700 mb-1" data-en="Name" data-ar="الاسم">Name</label>
+                            <input type="text" id="contact-name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500" required>
+                        </div>
+                        <div>
+                            <label for="contact-email" class="block text-gray-700 mb-1" data-en="Email" data-ar="البريد الإلكتروني">Email</label>
+                            <input type="email" id="contact-email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500" required>
+                        </div>
+                        <div>
+                            <label for="contact-subject" class="block text-gray-700 mb-1" data-en="Subject" data-ar="الموضوع">Subject</label>
+                            <input type="text" id="contact-subject" name="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500" required>
+                        </div>
+                        <div>
+                            <label for="contact-message" class="block text-gray-700 mb-1" data-en="Message" data-ar="الرسالة">Message</label>
+                            <textarea id="contact-message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500" required></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-pink-500 hover:bg-pink-600 text-white py-3 rounded-lg font-medium transition duration-300">
+                            <span data-en="Send Message" data-ar="إرسال الرسالة">Send Message</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <a href="#" class="flex items-center space-x-2 mb-6">
+                        <div class="bg-pink-500 text-white p-2 rounded-lg">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <span class="text-xl font-bold">Tasneem Alnaqbi</span>
+                    </a>
+                    <p class="text-gray-400 mb-4" data-en="Certified Life Coach helping you transform your life and discover your true purpose. Let's change our world together - لنغير عالمنا معاً" data-ar="مدربة حياة معتمدة تساعدك في تحويل حياتك واكتشاف هدفك الحقيقي. لنغير عالمنا معاً">
+                        Certified Life Coach helping you transform your life and discover your true purpose. Let's change our world together - لنغير عالمنا معاً
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-6" data-en="Quick Links" data-ar="روابط سريعة">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition-colors duration-300" data-en="Home" data-ar="الرئيسية">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors duration-300" data-en="About" data-ar="عن تسنيم">About</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition-colors duration-300" data-en="Services" data-ar="الخدمات">Services</a></li>
+                        <li><a href="#testimonials" class="text-gray-400 hover:text-white transition-colors duration-300" data-en="Testimonials" data-ar="آراء العملاء">Testimonials</a></li>
+                        <li><a href="https://calendly.com/tasneemink/coaching?month=2025-06" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-300" data-en="Book Session" data-ar="احجز جلسة">Book Session</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-6" data-en="Services" data-ar="الخدمات">Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300" data-en="Introductory Session" data-ar="جلسة تعريفية">Introductory Session</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300" data-en="Decision Making" data-ar="اتخاذ القرارات">Decision Making</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300" data-en="Passion Discovery" data-ar="اكتشاف الشغف">Passion Discovery</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300" data-en="Values & Mission" data-ar="القيم والرسالة">Values & Mission</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300" data-en="Content Creation" data-ar="إنشاء المحتوى">Content Creation</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-6" data-en="Contact Info" data-ar="معلومات الاتصال">Contact Info</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-3"></i>
+                            <span>tasneem@lifecoaching.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-calendar-check mt-1 mr-3"></i>
+                            <span>
+                                <a href="https://calendly.com/tasneemink/coaching?month=2025-06" target="_blank" class="hover:text-white transition-colors" data-en="Book a Session" data-ar="احجز جلسة">
+                                    Book a Session
+                                </a>
+                            </span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-clock mt-1 mr-3"></i>
+                            <span data-en="Response within 24hrs" data-ar="الرد خلال 24 ساعة">Response within 24hrs</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p data-en="© 2023 Tasneem Alnaqbi - Certified Life Coach. All rights reserved." data-ar="© 2023 تسنيم النقبي - مدربة حياة معتمدة. جميع الحقوق محفوظة.">&copy; 2023 Tasneem Alnaqbi - Certified Life Coach. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 bg-pink-500 text-white p-3 rounded-full shadow-lg opacity-0 invisible transition-opacity duration-300">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 opacity-0 invisible transition-opacity duration-300">
+        <div class="bg-white rounded-xl p-8 max-w-md mx-4 text-center">
+            <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-check text-green-500 text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-2" data-en="Thank You!" data-ar="شكراً لك!">Thank You!</h3>
+            <p class="text-gray-600 mb-6" data-en="Your message has been successfully sent. I'll get back to you within 24 hours!" data-ar="تم إرسال رسالتك بنجاح. سأعود إليك خلال 24 ساعة!">Your message has been successfully sent. I'll get back to you within 24 hours!</p>
+            <button id="close-modal" class="bg-pink-500 hover:bg-pink-600 text-white px-6 py-2 rounded-lg font-medium transition duration-300">
+                <span data-en="Close" data-ar="إغلاق">Close</span>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Initialize EmailJS
+        (function(){
+            emailjs.init("YOUR_PUBLIC_KEY"); // You'll need to replace this with your actual EmailJS public key
+        })();
+
+        // Language switching functionality
+        let currentLanguage = 'en';
+        
+        function switchLanguage(lang) {
+            currentLanguage = lang;
+            const body = document.body;
+            
+            // Update language buttons
+            document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+            document.getElementById('lang-ar').classList.toggle('active', lang === 'ar');
+            
+            // Update text direction and alignment
+            if (lang === 'ar') {
+                body.classList.add('rtl');
+                body.classList.remove('ltr');
+                body.style.fontFamily = 'Arial, sans-serif';
+            } else {
+                body.classList.add('ltr');
+                body.classList.remove('rtl');
+                body.style.fontFamily = '';
+            }
+            
+            // Update all translatable elements
+            const elements = document.querySelectorAll('[data-en][data-ar]');
+            elements.forEach(element => {
+                const text = element.getAttribute('data-' + lang);
+                if (text) {
+                    element.textContent = text;
+                }
+            });
+            
+            // Update HTML lang attribute
+            document.documentElement.lang = lang;
+        }
+
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Contact form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show loading state
+            const submitButton = this.querySelector('button[type="submit"]');
+            const originalText = submitButton.textContent;
+            submitButton.textContent = 'Sending...';
+            submitButton.disabled = true;
+            
+            // Prepare template parameters
+            const templateParams = {
+                from_name: this.name.value,
+                from_email: this.email.value,
+                subject: this.subject.value,
+                message: this.message.value,
+                to_email: 'tasneem@lifecoaching.com'
+            };
+            
+            // Send email using EmailJS
+            emailjs.send('YOUR_SERVICE_ID', 'YOUR_CONTACT_TEMPLATE_ID', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    const modal = document.getElementById('success-modal');
+                    modal.classList.remove('opacity-0', 'invisible');
+                    modal.classList.add('opacity-100', 'visible');
+                    document.getElementById('contact-form').reset();
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    alert('Sorry, there was an error sending your message. Please try again or contact me directly at tasneem@lifecoaching.com');
+                })
+                .finally(function() {
+                    // Reset button state
+                    submitButton.textContent = originalText;
+                    submitButton.disabled = false;
+                });
+        });
+
+        // Content creation form submission
+        document.getElementById('content-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show loading state
+            const submitButton = this.querySelector('button[type="submit"]');
+            const originalText = submitButton.textContent;
+            submitButton.textContent = 'Sending...';
+            submitButton.disabled = true;
+            
+            // Prepare template parameters
+            const templateParams = {
+                from_name: this.firstName.value,
+                company_name: this.companyName.value,
+                from_email: this.email.value,
+                phone: this.phone.value,
+                content_creator: this.contentCreator.value,
+                collaboration_details: this.collaborationDetails.value,
+                to_email: 'tasneem@lifecoaching.com'
+            };
+            
+            // Send email using EmailJS
+            emailjs.send('YOUR_SERVICE_ID', 'YOUR_CONTENT_TEMPLATE_ID', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    const modal = document.getElementById('success-modal');
+                    modal.classList.remove('opacity-0', 'invisible');
+                    modal.classList.add('opacity-100', 'visible');
+                    document.getElementById('content-form').reset();
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    alert('Sorry, there was an error sending your message. Please try again or contact me directly at tasneem@lifecoaching.com');
+                })
+                .finally(function() {
+                    // Reset button state
+                    submitButton.textContent = originalText;
+                    submitButton.disabled = false;
+                });
+        });
+
+        document.getElementById('close-modal').addEventListener('click', function() {
+            const modal = document.getElementById('success-modal');
+            modal.classList.remove('opacity-100', 'visible');
+            modal.classList.add('opacity-0', 'invisible');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    const targetPosition = targetElement.offsetTop - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
